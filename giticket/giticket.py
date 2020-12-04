@@ -55,23 +55,26 @@ def get_branch_name():
 
 
 def main(argv=None):
-    """This hook saves developers time by prepending ticket numbers to commit-msgs.
-    For this to work the following two conditions must be met:
+    # """This hook saves developers time by prepending ticket numbers to commit-msgs.
+    # For this to work the following two conditions must be met:
+    #
+    #     - The ticket format regex specified must match.
+    #     - The branch name format must be <ticket number>_<rest of the branch name>
+    # """
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('filenames', nargs='+')
+    # parser.add_argument('--regex')
+    # parser.add_argument('--format')
+    # parser.add_argument('--mode', nargs='?', const=underscore_split_mode,
+    #                     default=underscore_split_mode,
+    #                     choices=[underscore_split_mode, regex_match_mode])
+    # args = parser.parse_args(argv)
+    # regex = args.regex or '[A-Z]+-\d+'  # noqa
+    # format_string = args.format or '{ticket} {commit_msg}' # noqa
+    # update_commit_message(args.filenames[0], regex, args.mode, format_string)
+    print("You are here")
+    print(os.getcwd())
 
-        - The ticket format regex specified must match.
-        - The branch name format must be <ticket number>_<rest of the branch name>
-    """
-    parser = argparse.ArgumentParser()
-    parser.add_argument('filenames', nargs='+')
-    parser.add_argument('--regex')
-    parser.add_argument('--format')
-    parser.add_argument('--mode', nargs='?', const=underscore_split_mode,
-                        default=underscore_split_mode,
-                        choices=[underscore_split_mode, regex_match_mode])
-    args = parser.parse_args(argv)
-    regex = args.regex or '[A-Z]+-\d+'  # noqa
-    format_string = args.format or '{ticket} {commit_msg}' # noqa
-    update_commit_message(args.filenames[0], regex, args.mode, format_string)
 
 
 if __name__ == '__main__':
